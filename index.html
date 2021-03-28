@@ -17,12 +17,108 @@
         <div class="col-lg-6">
             <div id="graph1"></div>
             <div id="graph2"></div><br/>
+            <label for="regions">Region:</label>
+            <select name="regions" id="regions">
+                <option value="NA_Sales">North America</option>
+                <option value="EU_Sales">Europe</option>
+                <option value="JP_Sales">Japan</option>
+                <option value="Other_Sales">Other</option>
+                <option value="Global_Sales">Global</option>
+            </select>
+            <script>
+            function getDropDown1(){
+                var selection = document.getElementById('regions')
+                let option = selection.options[selection.selectedIndex].value
+                return option
+            }
+            </script>
+            <button type="button" class="btn btn-info" onclick="setData2(getDropDown1(), 'Region')">Update</button>
         </div>
         <div class="col-lg-6">
             <div id="graph3"></div>
+            <label for="genres">Genre:</label>
+            <select name="genres" id="genres">
+                <option value="Sports">Sports</option>
+                <option value="Platform">Platform</option>
+                <option value="Racing">Racing</option>
+                <option value="Role-Playing">Role-Playing</option>
+                <option value="Puzzle">Puzzle</option>
+                <option value="Misc">Misc</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Action">Action</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Puzzle">Strategy</option>
+            </select>
+            <script>
+            function getDropDown2(){
+                var selection = document.getElementById('genres')
+                let option = selection.options[selection.selectedIndex].value
+                return option
+            }
+            </script>
+            <button type="button" class="btn btn-info" onclick="setData3(getDropDown2(), 'Publisher')">Update</button>
         </div>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
+    <p>Question 1: Graph 1 answers the question by taking the top 10 video games
+    and clearly ranking them in the bar chart along with their respective numbers
+    of sales for comparison. Graph 2 answers the question by having an interactive 
+    pi chart which displays the percentage of overall sales per genre depending on
+    the region you select. The largest pie slice represents the most
+    popular genre of the region. Graph 3 answers the prompt by displaying the top 
+    10 publishers depending on the genre selected. To get the top publisher you
+    only need to view the top-most bar.
+    </p>
+    <p>
+    Question 2: It was simple to create drawings without having to worry about
+    rendering each individual shape in html ourselves. It was useful to group data 
+    together in a "modular" approach to simplify the logic behind what each bar/pie
+    slice stores as data. Lastly, it is easily usable with interactive elements in
+    html to change the graphs upon input.
+    </p>
+    <p>
+    Question 3: As a trade off to being easy to use, it is limited to the specific
+    types of things precoded into the library so it is not as customizable, as in
+    if you had a much more complicated dataset to represent, it might be difficult 
+    realize your ideas and you may need to compromise. One general con is that the
+    documentation is not very clear which makes it somewhat difficult to use more 
+    obscure functionalities. A last disadvantage is that while d3 does a good job 
+    grouping objects, it can be tricky to keep them organized and to make sure you 
+    are calling on the correct parent object and/or selecting the right html item
+    to call functions on. 
+    </p>
+    <p>
+    Question 4: In response to "Accesible Data Visualization", I think the graphs
+    are quickly understandable. Being ordered particularly in the bar charts from
+    lowest to highest lets the reader quickly determine what the best producer for
+    a genre is, or what the best selling video game of all time was, without having
+    to try and guess which bar is longer than the others. One issue I ran into
+    in regards to color pallets was picking a suitable one. I ended up deciding to 
+    have single colors for the bar chart and only different colors for the pie chart. This way
+    there was no misleading information in the bar charts about the color indicating
+    something it doesnt. The length of the bar tells all. The pie chart was necessary 
+    to add some color in order to differentiate the different slices, but again I
+    made sure to keep some seperators that were white so colorblind people could
+    discern the different segments as well.
+    </p>
+    <p>
+    Question 5: Before I began coding, I planned out what each graph would be, and 
+    made sure they answered the questions appropriately. One thing I struggled with 
+    non-colorwise as mentioned in the last paragraph was text and particularly labels
+    of longer titles. This was quite difficult to choose and I think the biggest factor
+    in there being a conflict was the dataset itself. It is quite difficult to abreviate
+    some of these game titles into acronyms or even shorten them all properly since
+    acronyms don't always make sense, and some games have important information at their
+    ends such as "2" or "Wii" that differentiate them from other nearly identical ones.
+    Had I more time I would hard code in the y axis labels for the static bar plot in 
+    graph 1, however when trying to make substrings for them it seemed to offset the 
+    bars since the y axis labels were defined within a mapping used in the y axis.
+    The tool tip was supposed to be used to reveal the full title which it does,
+    however these issues stopped me from shortening them.
+    </p>
+    
 </body>
 </html>
